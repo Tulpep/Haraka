@@ -554,6 +554,7 @@ function stream_line_reader (stream, transaction, cb) {
     stream.on('data', function (data) { process_data(data);});
     stream.once('end',  function ()     { process_end();     });
     stream.once('error', cb);
+    stream.resume();
 }
 
 exports.send_trans_email = function (transaction, next) {
